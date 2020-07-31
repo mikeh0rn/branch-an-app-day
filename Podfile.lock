@@ -1,0 +1,16 @@
+PODS:
+  - Branch (0.34.0)
+
+DEPENDENCIES:
+  - Branch
+
+SPEC REPOS:
+  trunk:
+    - Branch
+
+SPEC CHECKSUMS:
+  Branch: 446aeb832102f56f04edf5fa7cb0a752dc392ca7
+
+PODFILE CHECKSUM: ab29148aca4833c29f22da681d0b6402bd871ad7
+
+COCOAPODS: 1.9.3
