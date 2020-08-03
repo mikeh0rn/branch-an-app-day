@@ -10,7 +10,7 @@
         <!--Info View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InfoViewController" customModule="BranchAnAppDay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoViewController" id="BYZ-38-t0r" customClass="InfoViewController" customModule="BranchAnAppDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,27 +64,68 @@
                         <outlet property="textFieldLocation" destination="R82-4x-SBR" id="YhI-n6-4B4"/>
                         <outlet property="textFieldName" destination="dYS-Ux-e6G" id="rqN-wv-2Ts"/>
                         <outlet property="textFieldRole" destination="aZO-zl-6bH" id="tHq-DV-cpm"/>
+                        <segue destination="DpZ-BM-Cs3" kind="show" identifier="segueToDetail" id="uSM-Iq-dro"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="126.5625"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="3Aj-Cr-TFP">
             <objects>
-                <viewController id="DpZ-BM-Cs3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="DpZ-BM-Cs3" customClass="DetailViewController" customModule="BranchAnAppDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nRR-80-cFa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqj-H7-aNz">
+                                <rect key="frame" x="20" y="271" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zW-1e-yFi">
+                                <rect key="frame" x="20" y="343" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kisspng-branch-metrics-mobile-deep-linking-logo-marketing-leaflets-5afcab538a7c23.7609386415265083715672" translatesAutoresizingMaskIntoConstraints="NO" id="3rb-BD-aYr">
+                                <rect key="frame" x="94" y="411" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="S85-DN-1i0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xof-GU-6vF">
+                                <rect key="frame" x="20" y="200" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3rb-BD-aYr" firstAttribute="top" secondItem="2zW-1e-yFi" secondAttribute="bottom" constant="47" id="3Gs-jj-MvD"/>
+                            <constraint firstItem="qqj-H7-aNz" firstAttribute="trailing" secondItem="2zW-1e-yFi" secondAttribute="trailing" id="4sQ-7y-1q9"/>
+                            <constraint firstItem="2zW-1e-yFi" firstAttribute="top" secondItem="qqj-H7-aNz" secondAttribute="bottom" constant="51" id="7ZK-hU-Iia"/>
+                            <constraint firstItem="prQ-EE-2NV" firstAttribute="trailing" secondItem="xof-GU-6vF" secondAttribute="trailing" constant="20" id="Azl-VI-0Ou"/>
+                            <constraint firstItem="xof-GU-6vF" firstAttribute="top" secondItem="prQ-EE-2NV" secondAttribute="top" constant="112" id="BG4-dz-nGM"/>
+                            <constraint firstItem="qqj-H7-aNz" firstAttribute="trailing" secondItem="xof-GU-6vF" secondAttribute="trailing" id="FRd-aU-7ae"/>
+                            <constraint firstItem="qqj-H7-aNz" firstAttribute="leading" secondItem="xof-GU-6vF" secondAttribute="leading" id="Hg4-qH-nPg"/>
+                            <constraint firstItem="qqj-H7-aNz" firstAttribute="top" secondItem="xof-GU-6vF" secondAttribute="bottom" constant="50" id="KLx-o1-dng"/>
+                            <constraint firstItem="qqj-H7-aNz" firstAttribute="leading" secondItem="2zW-1e-yFi" secondAttribute="leading" id="WBC-AS-2tb"/>
+                            <constraint firstItem="prQ-EE-2NV" firstAttribute="trailing" secondItem="3rb-BD-aYr" secondAttribute="trailing" constant="80" id="h9h-zO-xqJ"/>
+                            <constraint firstItem="xof-GU-6vF" firstAttribute="leading" secondItem="prQ-EE-2NV" secondAttribute="leading" constant="20" id="hak-SP-h9I"/>
+                            <constraint firstItem="3rb-BD-aYr" firstAttribute="leading" secondItem="prQ-EE-2NV" secondAttribute="leading" constant="94" id="oZz-wA-K7M"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="prQ-EE-2NV"/>
                     </view>
                     <navigationItem key="navigationItem" id="L4v-5w-jZa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fo-XO-MN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="127"/>
+            <point key="canvasLocation" x="1886.9565217391305" y="126.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f3S-1f-7B0">
@@ -105,4 +146,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="kisspng-branch-metrics-mobile-deep-linking-logo-marketing-leaflets-5afcab538a7c23.7609386415265083715672" width="900" height="900"/>
+    </resources>
 </document>

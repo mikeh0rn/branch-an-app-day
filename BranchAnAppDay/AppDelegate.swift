@@ -12,16 +12,29 @@ import Branch
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    //    TO DO: ADD BRANCH CODE FROM IOS BASIC INTEGRATION GUIDE:
-    //    https://help.branch.io/developers-hub/docs/ios-basic-integration#section-initialize-branch
-
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       // listener for Branch Deep Link data
+      Branch.getInstance().enableLogging()
       Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
            // do stuff with deep link data (nav to page, display content, etc)
           print(params as? [String: AnyObject] ?? {})
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let detailViewController: DetailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController;
+            let name = params?["name"] as! String?
+            let role = params?["role"] as! String?
+            let location = params?["location"] as! String?
+        if let unwrappedName = name, let unwrappedRole = role, let unwrappedLocation = location {
+                detailViewController.name = unwrappedName
+        detailViewController.role = unwrappedRole
+           detailViewController.location = unwrappedLocation
+
+            let rootViewController = self.window!.rootViewController as! UINavigationController;
+            rootViewController.pushViewController(detailViewController, animated: true);
+        }
+
       }
       return true
     }

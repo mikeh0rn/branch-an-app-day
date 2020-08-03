@@ -8,8 +8,13 @@
 
 import Foundation
 import UIKit
+import Branch
 
 class InfoViewController: UIViewController {
+    
+    public var name: String = ""
+    public var role: String = ""
+    public var location: String = ""
     
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldRole: UITextField!
@@ -42,7 +47,20 @@ class InfoViewController: UIViewController {
     }
     
     @IBAction func createBranchLinkTapped(_ sender: Any) {
+        let lp: BranchLinkProperties = BranchLinkProperties()
+        lp.channel = "SMS"
+        lp.feature = "Sharing"
+        lp.campaign = "August 2020 Campaign"
+        lp.tags = ["acquisition", "marketing", "share-with-a-friend"]
+        lp.addControlParam("name", withValue: name)
+        lp.addControlParam("role", withValue: role)
+        lp.addControlParam("location", withValue: location)
         
+        let buo = BranchUniversalObject.init(canonicalIdentifier: UUID.init().uuidString)
+        let message = "Check out this link"
+        buo.showShareSheet(with: lp, andShareText: message, from: self) { (activityType, completed) in
+          print(activityType ?? "")
+        }
     }
 }
 
