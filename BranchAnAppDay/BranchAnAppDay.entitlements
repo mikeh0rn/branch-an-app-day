@@ -3,11 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>com.apple.developer.associated-domains</key>
-	<array>
-		<string>applinks:mikehorn.app.link</string>
-		<string>applinks:mikehorn-alternate.app.link</string>
-		<string>applinks:mikehorn.test-app.link</string>
-		<string>applinks:mikehorn-alternate.test-app.link</string>
-	</array>
+	<array/>
 </dict>
 </plist>

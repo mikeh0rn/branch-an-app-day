@@ -7,7 +7,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>mikehorn</string>
+				<string></string>
 			</array>
 			<key>CFBundleURLName</key>
 			<string></string>
@@ -15,13 +15,13 @@
 	</array>
 	<key>branch_universal_link_domains</key>
 	<array>
-		<string>mikehorn.app.link</string>
-		<string>mikehorn-alternate.app.link</string>
-		<string>mikehorn.test-app.link</string>
-		<string>mikehorn-alternate.test-app.link</string>
+		<string></string>
+		<string></string>
+		<string></string>
+		<string></string>
 	</array>
 	<key>branch_key</key>
-	<string>key_live_omPdKap615NW52zlTUvXEklayEiTWfyW</string>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
