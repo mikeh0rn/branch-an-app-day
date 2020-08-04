@@ -15,10 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      // listener for Branch Deep Link data
-      Branch.getInstance().enableLogging()
+
       Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
-           // do stuff with deep link data (nav to page, display content, etc)
           print(params as? [String: AnyObject] ?? {})
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil);
@@ -34,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let rootViewController = self.window?.rootViewController as! UINavigationController;
             rootViewController.pushViewController(detailViewController, animated: true);
         }
-
       }
       return true
     }
@@ -42,9 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return Branch.getInstance().application(app, open: url, options: options)
     }
+    
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
       // handler for Universal Links
+        print("userActivity:", userActivity)
         return Branch.getInstance().continue(userActivity)
     }
 
