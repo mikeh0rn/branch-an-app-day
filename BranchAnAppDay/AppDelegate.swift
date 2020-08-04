@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         detailViewController.role = unwrappedRole
            detailViewController.location = unwrappedLocation
 
-            let rootViewController = self.window!.rootViewController as! UINavigationController;
+            let rootViewController = self.window?.rootViewController as! UINavigationController;
             rootViewController.pushViewController(detailViewController, animated: true);
         }
 
@@ -48,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return Branch.getInstance().continue(userActivity)
     }
 
+    func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+        return true
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
       // handler for Push Notifications
       Branch.getInstance().handlePushNotification(userInfo)
